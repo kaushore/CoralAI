@@ -52,31 +52,9 @@ def ask_query(up_llm):
             # Add assistant response to chat history
             st.session_state.messages.append({"role": "assistant", "content": response})
         elif up_llm == "Leave planner":
-            plan_leave(prompt)
+            pass
         else:
-            ask_llm(prompt)
-
-def plan_leave(prompt):
-    print(f"I am leave planner : {prompt}")
-    prompt_template = """
-        classify the user query in two classes : Apply Leave and Show Leave Plan
-        Below are some examples:
-        query : Can you apply leave for me?
-        class : Apply Leave
-        query : Show me how many leaves I have taken so far.
-        class : Show Leave Plan
-        query : Apply leave for tomorrow.
-        class : Apply Leave
-        query : Have I taken leave on monday?
-        class : Show Leave Plan
-        query : {prompt}
-        class :
-    """
-
-    prompt_template = prompt_template.replace("{prompt}",prompt)
-    response = ask_llm(prompt_template)
-
-    st.markdown(response)
+            pass
 
 
 st.title("NCERT Bio Bot")
